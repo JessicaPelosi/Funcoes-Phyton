@@ -1,0 +1,628 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JessicaPelosi/Funcoes-Phyton/blob/main/Arquivo_com_estrutura\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eEB_xybvCEfq",
+        "outputId": "9c038667-a6fb-4f10-fa7c-8580e2416929"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "*** Gerenciamento de Funcionários COM ARQUIVO ***\n",
+            "1- Cadastrar\n",
+            "2- Mostrar\n",
+            "3- Sair\n",
+            "Digite a opção: 1\n",
+            "\n",
+            "Cadastro de Funcionários.........................\n",
+            "Digite a matrícula: 10\n",
+            "Digite o nome: Bia\n",
+            "Digite o salário: 1000\n",
+            "Digite a matrícula: 2\n",
+            "Digite o nome: Leo\n",
+            "Digite o salário: 2000\n",
+            "Digite a matrícula: 3\n",
+            "Digite o nome: Ana\n",
+            "Digite o salário: 3000\n",
+            "\n",
+            "*** Gerenciamento de Funcionários COM ARQUIVO ***\n",
+            "1- Cadastrar\n",
+            "2- Mostrar\n",
+            "3- Sair\n",
+            "Digite a opção: 2\n",
+            "\n",
+            "Apresentação dos dados dos funcionários .........\n",
+            "Matrícula\tNome\tSalário\n",
+            "10 \t\t Bia \t 1000.00\n",
+            "2 \t\t Leo \t 2000.00\n",
+            "3 \t\t Ana \t 3000.00\n",
+            "\n",
+            "*** Gerenciamento de Funcionários COM ARQUIVO ***\n",
+            "1- Cadastrar\n",
+            "2- Mostrar\n",
+            "3- Sair\n",
+            "Digite a opção: 3\n"
+          ]
+        }
+      ],
+      "source": [
+        " # GERENCIAMENTO DE FUNCIONÁRIOS COM ARQUIVO\n",
+        "class TipoFuncionario: \n",
+        "    matricula = 0\n",
+        "    nome = ''\n",
+        "    salario = 0.0\n",
+        "\n",
+        "def Cadastrar(vetFuncionario):\n",
+        "    arquivo = open('arq_Funcionario.txt', 'w')\n",
+        "    print('\\nCadastro de Funcionários.........................')\n",
+        "    for i in range(3):\n",
+        "        f = TipoFuncionario()\n",
+        "        f.matricula = int(input('Digite a matrícula: '))\n",
+        "        f.nome = input('Digite o nome: ')\n",
+        "        f.salario = float(input('Digite o salário: '))\n",
+        "        #vetFuncionario.append(f) # \n",
+        "        arquivo.write(f'{f.matricula};{f.nome};{f.salario:.2f}\\n')\n",
+        "        #ou\n",
+        "        #arquivo.write('%d %s %.2f\\n' % (f.matricula, f.nome, f.salario))\n",
+        "    arquivo.close()\n",
+        "    return vetFuncionario\n",
+        "\n",
+        "def Mostrar():\n",
+        "    arquivo = open('arq_Funcionario.txt', 'r')\n",
+        "    print('\\nApresentação dos dados dos funcionários .........')\n",
+        "    print('Matrícula\\tNome\\tSalário')\n",
+        "    for linha in arquivo.readlines():\n",
+        "        mat, nome, sal = linha.strip().split(';')\n",
+        "        print(mat,'\\t\\t',nome,'\\t',sal)\n",
+        "    arquivo.close()\n",
+        "\n",
+        "def main():\n",
+        "    op = 1\n",
+        "    while op >=1 and op <= 2:\n",
+        "        print('\\n*** Gerenciamento de Funcionários COM ARQUIVO ***')\n",
+        "        print('1- Cadastrar')\n",
+        "        print('2- Mostrar')\n",
+        "        print('3- Sair')\n",
+        "        op = int(input('Digite a opção: '))\n",
+        "        if op == 1:\n",
+        "            vetF=[]\n",
+        "            vetF = Cadastrar(vetF)\n",
+        "        elif op == 2:\n",
+        "            Mostrar()            \n",
+        "\n",
+        "main()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arquivo = open(\"numeros.txt\", \"a\") # apagando e criando\n",
+        "for linha in range(60,65):\n",
+        "    #arquivo.write(\"Boa noite %i\\n\" % linha)\n",
+        "    #ou assim\n",
+        "    arquivo.write(f\"Bom descanso {linha}\\n\")\n",
+        "arquivo.close()\n",
+        "print(\"Término da execução.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fSxZZHEivgbH",
+        "outputId": "2d84793a-f8b7-4725-f678-9f7a145077a5"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Término da execução.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arq_exemplo = open(\"numeros.txt\", \"r\")\n",
+        "for x in arq_exemplo.readlines():\n",
+        "    print(x)\n",
+        "arq_exemplo.close()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1pH3g1cmy1WQ",
+        "outputId": "9f559bb7-62f2-4e6f-ad0c-088509c08f6c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Boa noite1\n",
+            "\n",
+            "Boa noite2\n",
+            "\n",
+            "Boa noite3\n",
+            "\n",
+            "Boa noite4\n",
+            "\n",
+            "Boa noite5\n",
+            "\n",
+            "Bom descanso 60\n",
+            "\n",
+            "Bom descanso 61\n",
+            "\n",
+            "Bom descanso 62\n",
+            "\n",
+            "Bom descanso 63\n",
+            "\n",
+            "Bom descanso 64\n",
+            "\n",
+            "Bom descanso 60\n",
+            "\n",
+            "Bom descanso 61\n",
+            "\n",
+            "Bom descanso 62\n",
+            "\n",
+            "Bom descanso 63\n",
+            "\n",
+            "Bom descanso 64\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "impares = open(\"impares.txt\" , \"a\")\n",
+        "pares = open(\"pares.txt\" , \"a\")\n",
+        "for n in range(1,5):\n",
+        "    if n % 2 == 0:\n",
+        "        pares.write(f'{n}\\n')\n",
+        "    else:\n",
+        "        impares.write(f'{n}\\n')\n",
+        "impares.close()\n",
+        "pares.close()"
+      ],
+      "metadata": {
+        "id": "RzEBduZI0NNL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "skN-Wz61xZzi"
+      },
+      "source": [
+        "### 1. Elabore uma estrutura para representar e armazenar 10 fornecedores (código, nome, endereco). Utilize os recursos de arquivo para armazenar estes dados permanentemente. O nome do arquivo deve ser o mesmo da estrutura. Construa um menu com as seguintes opções, cada uma delas deve ter uma função e a main para chamar todas elas.\n",
+        "\n",
+        "Menu de opções:\n",
+        "1. Cadastrar fornecedores\n",
+        "2. Visualizar todos os dados\n",
+        "3. Sair\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Wbjafj_QxWP-",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3064fb14-e420-44ae-e3fd-6b03b820a09d"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "*** Cadastro de fornecedores: ***\n",
+            "1- Cadastrar fornecedores\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 1\n",
+            "\n",
+            "Digite o código do fornecedor: 10\n",
+            "Digite o nome do fornecedor: Arnaldo Cesar\n",
+            "Digite o endereço do fornecedor: Rua Maria Lima n10\n",
+            "\n",
+            "Digite o código do fornecedor: 11\n",
+            "Digite o nome do fornecedor: Miranda Dias \n",
+            "Digite o endereço do fornecedor: Rua Arlindo Pereti n23\n",
+            "\n",
+            "Digite o código do fornecedor: 12\n",
+            "Digite o nome do fornecedor: Lula Bolsonaro\n",
+            "Digite o endereço do fornecedor: Rua Coronel Marcondes n1322\n",
+            "\n",
+            "*** Cadastro de fornecedores: ***\n",
+            "1- Cadastrar fornecedores\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 2\n",
+            "\n",
+            "Código\t\tNome\t\tEndereço\n",
+            "10 \t\t Arnaldo Cesar \t Rua Maria Lima n10\n",
+            "11 \t\t Miranda Dias  \t Rua Arlindo Pereti n23\n",
+            "12 \t\t Lula Bolsonaro \t Rua Coronel Marcondes n1322\n",
+            "\n",
+            "*** Cadastro de fornecedores: ***\n",
+            "1- Cadastrar fornecedores\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 3\n"
+          ]
+        }
+      ],
+      "source": [
+        "class cad_Fornecedor:\n",
+        "    codigo = 0\n",
+        "    nome = \"\"\n",
+        "    endereco = \"\"\n",
+        "\n",
+        "def Cadastrar(vetFornecedor):\n",
+        "    arquivo = open(\"fornecedor.txt\", \"w\")\n",
+        "    \n",
+        "    for i in range(3):\n",
+        "        f = cad_Fornecedor()\n",
+        "        f.codigo = int(input(\"\\nDigite o código do fornecedor: \"))\n",
+        "        f.nome = input(\"Digite o nome do fornecedor: \")\n",
+        "        f.endereco = input(\"Digite o endereço do fornecedor: \")\n",
+        "        arquivo.write(f'{f.codigo};{f.nome};{f.endereco}\\n')\n",
+        "    arquivo.close()\n",
+        "    return vetFornecedor\n",
+        "\n",
+        "def Mostrar():\n",
+        "    arquivo = open(\"fornecedor.txt\", \"r\")\n",
+        "    print(\"\\nCódigo\\t\\tNome\\t\\tEndereço\")\n",
+        "    for linha in arquivo.readlines():\n",
+        "        cod, nome, end = linha.strip().split(\";\")\n",
+        "        print(cod,'\\t\\t',nome,'\\t',end)\n",
+        "    arquivo.close()\n",
+        "\n",
+        "def main():\n",
+        "    op = 1\n",
+        "    while op >=1 and op <= 2:\n",
+        "        print(\"\\n*** Cadastro de fornecedores: ***\")\n",
+        "        print(\"1- Cadastrar fornecedores\")\n",
+        "        print(\"2- Visualizar todos os dados\")\n",
+        "        print(\"3- Sair\")\n",
+        "        op = int(input(\"Digite a opção: \"))\n",
+        "        if op == 1:\n",
+        "            vetF=[]\n",
+        "            vetF = Cadastrar(vetF)\n",
+        "        elif op == 2:\n",
+        "            Mostrar()            \n",
+        "\n",
+        "main()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0jPoba3-yLnG"
+      },
+      "source": [
+        "### 2. Elabore uma estrutura para representar e armazenar 10 produtos (código, nome, preço). Utilize os recursos de arquivo para armazenar estes dados permanentemente. O nome do arquivo deve ser o mesmo da estrutura. Construa um menu com as seguintes opções, cada uma delas deve ter uma função e a main para chamar todas elas.\n",
+        "\n",
+        "Menu de opções:\n",
+        "1. Cadastrar produtos\n",
+        "2. Visualizar todos os dados\n",
+        "3. Sair"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "U--JD-UVAZ_4",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "25ba84f1-bd68-4f52-ccdb-6861431fdb3f"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "*** Cadastro de produtos: ***\n",
+            "1- Cadastrar os produtos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 1\n",
+            "\n",
+            "Digite o código do produto: 2023\n",
+            "Digite o nome do produto: Banana\n",
+            "Digite o preço do produto: 2.99\n",
+            "\n",
+            "Digite o código do produto: 2052\n",
+            "Digite o nome do produto: Mamão\n",
+            "Digite o preço do produto: 7.99\n",
+            "\n",
+            "Digite o código do produto: 2715\n",
+            "Digite o nome do produto: Ameixa\n",
+            "Digite o preço do produto: 12.99\n",
+            "\n",
+            "*** Cadastro de produtos: ***\n",
+            "1- Cadastrar os produtos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 2\n",
+            "\n",
+            "Código\t\tNome\t\tPreço\n",
+            "2023 \t\t Banana \t 2.99\n",
+            "2052 \t\t Mamão \t 7.99\n",
+            "2715 \t\t Ameixa \t 12.99\n",
+            "\n",
+            "*** Cadastro de produtos: ***\n",
+            "1- Cadastrar os produtos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 3\n"
+          ]
+        }
+      ],
+      "source": [
+        "class cad_Produto:\n",
+        "    codigo = 0\n",
+        "    nome = \"\"\n",
+        "    preco = 0.0\n",
+        "\n",
+        "def Cadastrar(vetProduto):\n",
+        "    arquivo = open(\"produto.txt\", \"w\")\n",
+        "    \n",
+        "    for i in range(3):\n",
+        "        f = cad_Produto()\n",
+        "        f.codigo = int(input(\"\\nDigite o código do produto: \"))\n",
+        "        f.nome = input(\"Digite o nome do produto: \")\n",
+        "        f.preco = float(input(\"Digite o preço do produto: \"))\n",
+        "        arquivo.write(f'{f.codigo};{f.nome};{f.preco:.2f}\\n')\n",
+        "    arquivo.close()\n",
+        "    return vetProduto\n",
+        "\n",
+        "def Mostrar():\n",
+        "    arquivo = open(\"produto.txt\", \"r\")\n",
+        "    print(\"\\nCódigo\\t\\tNome\\t\\tPreço\")\n",
+        "    for linha in arquivo.readlines():\n",
+        "        cod, nome, preco = linha.strip().split(\";\")\n",
+        "        print(cod,'\\t\\t',nome,'\\t',preco)\n",
+        "    arquivo.close()\n",
+        "\n",
+        "def main():\n",
+        "    op = 1\n",
+        "    while op >=1 and op <= 2:\n",
+        "        print(\"\\n*** Cadastro de produtos: ***\")\n",
+        "        print(\"1- Cadastrar os produtos\")\n",
+        "        print(\"2- Visualizar todos os dados\")\n",
+        "        print(\"3- Sair\")\n",
+        "        op = int(input(\"Digite a opção: \"))\n",
+        "        if op == 1:\n",
+        "            vetP=[]\n",
+        "            vetP = Cadastrar(vetP)\n",
+        "        elif op == 2:\n",
+        "            Mostrar()            \n",
+        "\n",
+        "main()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7qLNzo1C_7K5"
+      },
+      "source": [
+        "### 3. Elabore uma estrutura para representar e armazenar 10 alunos (matricula, nome, telefone). Utilize os recursos de arquivo para armazenar estes dados permanentemente. O nome do arquivo deve ser o mesmo da estrutura. Construa um menu com as seguintes opções, cada uma delas deve ter uma função e a main para chamar todas elas.\n",
+        "\n",
+        "Menu de opções:\n",
+        "1. Cadastrar alunos\n",
+        "2. Visualizar todos os dados\n",
+        "3. Sair\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "UHD2oMlJyLzc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "7f65dcf8-ef80-4d77-d08a-9407aea3cbe5"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "\n",
+            "*** Cadastro de alunos: ***\n",
+            "1- Cadastrar alunos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 1\n",
+            "\n",
+            "Digite a matrícula do aluno: 1\n",
+            "Digite o nome do aluno: Caio\n",
+            "Digite o telefone do aluno: 99888776655\n",
+            "\n",
+            "Digite a matrícula do aluno: 2\n",
+            "Digite o nome do aluno: Lipe\n",
+            "Digite o telefone do aluno: 99663374455\n",
+            "\n",
+            "Digite a matrícula do aluno: 3\n",
+            "Digite o nome do aluno: Jess\n",
+            "Digite o telefone do aluno: 997747278\n",
+            "\n",
+            "*** Cadastro de alunos: ***\n",
+            "1- Cadastrar alunos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 2\n",
+            "\n",
+            "Matrícula\t\tNome\tTelefone\n",
+            "1 \t\t Caio \t 99888776655\n",
+            "2 \t\t Lipe \t 99663374455\n",
+            "3 \t\t Jess \t 997747278\n",
+            "\n",
+            "*** Cadastro de alunos: ***\n",
+            "1- Cadastrar alunos\n",
+            "2- Visualizar todos os dados\n",
+            "3- Sair\n",
+            "Digite a opção: 3\n"
+          ]
+        }
+      ],
+      "source": [
+        "class cad_Alunos:\n",
+        "    matricula = 0\n",
+        "    nome = \"\"\n",
+        "    telefone = 0\n",
+        "\n",
+        "def Cadastrar(vetAluno):\n",
+        "    arquivo = open(\"alunos.txt\", \"w\")\n",
+        "    \n",
+        "    for i in range(3):\n",
+        "        f = cad_Alunos()\n",
+        "        f.matricula = int(input(\"\\nDigite a matrícula do aluno: \"))\n",
+        "        f.nome = input(\"Digite o nome do aluno: \")\n",
+        "        f.telefone = int(input(\"Digite o telefone do aluno: \"))\n",
+        "        arquivo.write(f'{f.matricula};{f.nome};{f.telefone}\\n')\n",
+        "    arquivo.close()\n",
+        "    return vetAluno\n",
+        "\n",
+        "def Mostrar():\n",
+        "    arquivo = open(\"alunos.txt\", \"r\")\n",
+        "    print(\"\\nMatrícula\\t\\tNome\\tTelefone\")\n",
+        "    for linha in arquivo.readlines():\n",
+        "        mat, nome, tel = linha.strip().split(\";\")\n",
+        "        print(mat,'\\t\\t',nome,'\\t',tel)\n",
+        "    arquivo.close()\n",
+        "\n",
+        "def main():\n",
+        "    op = 1\n",
+        "    while op >=1 and op <= 2:\n",
+        "        print(\"\\n*** Cadastro de alunos: ***\")\n",
+        "        print(\"1- Cadastrar alunos\")\n",
+        "        print(\"2- Visualizar todos os dados\")\n",
+        "        print(\"3- Sair\")\n",
+        "        op = int(input(\"Digite a opção: \"))\n",
+        "        if op == 1:\n",
+        "            vetA=[]\n",
+        "            vetA = Cadastrar(vetA)\n",
+        "        elif op == 2:\n",
+        "            Mostrar()            \n",
+        "\n",
+        "main()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4zGuLRRXt0D_"
+      },
+      "source": [
+        "### 4. Baixe o arquivo futebol.txt que esta na pasta Material do aula do Teams. Leia este arquivo e o apresente. Com os dados lidos, armazene na estrutura Futebol (posicao_jogo, altura, peso, imc), calcule o IMC (Índice de Massa Corporal), armazene na estrutura e também em outro arquivo, mas agora chamado futebol_imc.txt. Apresente este novo arquivo. \n",
+        "Observação: esse exercício deve ser carregado o arquivo futebol.txt, aqui no Colab, no menu (ícone pasta) do lado esquerdo, que estará disponível no Classroom."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nU0x1v2Vt1-w",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "80b07e15-6210-495e-b3ef-8d3712ee34c0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Posição\t\tAltura\tPeso\n",
+            "﻿Zagueiro \t 1.79 \t 78.0\n",
+            "Zagueiro \t 1.78 \t 85.0\n",
+            "Meio campo \t 1.75 \t 71.1\n",
+            "Meio campo \t 1.81 \t 73.5\n",
+            "Meio campo \t 1.75 \t 73.5\n",
+            "Goleiro \t 1.85 \t 81.0\n",
+            "Atacante \t 1.87 \t 81.7\n",
+            "Atacante \t 1.65 \t 55.5\n",
+            "Atacante \t 1.78 \t 77.9\n",
+            "Lateral \t 1.70 \t 66.0\n",
+            "Lateral \t 1.74 \t 63.7\n"
+          ]
+        }
+      ],
+      "source": [
+        "# imc = peso / (altura ** 2)\n",
+        "\n",
+        "class cad_Futebol:\n",
+        "    posicao_jogo = \"\"\n",
+        "    altura = 0.0\n",
+        "    peso = 0.0\n",
+        "\n",
+        "def Mostrar():\n",
+        "    arquivo = open(\"futebol.txt\", \"r\") \n",
+        "    arquivo_imc = open(\"futebol_imc.txt\", \"w\")\n",
+        "    print(\"\\nPosição\\t\\tAltura\\tPeso\")\n",
+        "    \n",
+        "    for linha in arquivo.readlines():\n",
+        "        posicao, altura, peso = linha.strip().split(\",\")\n",
+        "        imc = float(peso) / (float(altura) ** 2)\n",
+        "        arquivo_imc.write(f'{posicao},{altura},{peso},{imc:.2f}\\n')\n",
+        "        print(posicao,'\\t',altura,'\\t',peso)\n",
+        "    arquivo.close()\n",
+        "    arquivo_imc.close()\n",
+        "\n",
+        "def main():\n",
+        "      Mostrar()       \n",
+        "\n",
+        "main()"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
