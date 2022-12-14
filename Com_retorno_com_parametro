@@ -1,0 +1,667 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JessicaPelosi/Funcoes-Phyton/blob/main/Com_retorno_com_parametro\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "skN-Wz61xZzi"
+      },
+      "source": [
+        "### 1. (Função com retorno com parâmetro) Faça um programa contendo uma função/método que receba por parâmetro um número e o multiplique por 2, retorne e apresente o resultado da função."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "'''def multiplicar(numero):\n",
+        "    r = numero * 2\n",
+        "    # Python permite o retorno de \n",
+        "    # mais que uma variável, se precisar\n",
+        "    return numero, r '''\n",
+        "\n",
+        "def multiplicar(numero):\n",
+        "    r = numero * 2\n",
+        "    # Mais comum na programação, \n",
+        "    # retorno de UMA variável\n",
+        "    return r \n",
+        "\n",
+        "def main():\n",
+        "    n = int (     input('Informe o número: ')      )\n",
+        "    print(multiplicar(n)) \n",
+        "    '''# ou chamada da função com mais de uma variável de retorno\n",
+        "    a, b = multiplicar(n)\n",
+        "    print('O número digitado foi: ', a)\n",
+        "    print('O resultado é',b)'''\n",
+        "     \n",
+        "main()"
+      ],
+      "metadata": {
+        "id": "G0T6-NaVVafP",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3772dfa4-ef20-42c5-ce8d-10c261bca39d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Informe o número: 9\n",
+            "18 9\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "0jPoba3-yLnG"
+      },
+      "source": [
+        "### 2. (Função com retorno com parâmetro) Faça um programa contendo uma função/método que receba dois números via parâmetro, some os dois valores, retorne e apresente o resultado."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "UHD2oMlJyLzc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "370da301-c1c6-4bb5-c6ae-4d54228d9fab"
+      },
+      "source": [
+        "def somar(n1, n2):\n",
+        "    return n1 + n2\n",
+        "\n",
+        "def main():\n",
+        "    numero1 = int(input(\"Digite o primeiro valor: \"))\n",
+        "    numero2 = int(input(\"Digite o segundo valor: \"))\n",
+        "    print(\"O resultado é\", somar(numero1, numero2))\n",
+        "\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite o primeiro valor: 10\n",
+            "Digite o segundo valor: 20\n",
+            "O resultado é 30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "4zGuLRRXt0D_"
+      },
+      "source": [
+        "### 3. (Função com retorno com parâmetro) Faça um programa contendo uma função/método que receba um valor de porcentagem de aumento via parâmetro, aplique este aumento a um salário de um funcionário, retorne e apresente o novo salário."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "nU0x1v2Vt1-w",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "42155699-a28a-4e9d-c4b6-04c9e9b6ca2a"
+      },
+      "source": [
+        "def novo_salario(salario,percentual):\n",
+        "    return salario + salario * (percentual / 100)\n",
+        "\n",
+        "def main(): \n",
+        "    salario = float(input(\"Insira o salário: \"))\n",
+        "    percentual = float(input(\"Insira o percentual de aumento: \"))\n",
+        "    print(\"O novo salário é\",novo_salario(salario,percentual))\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Insira o salário: 1000\n",
+            "Insira o percentual de aumento: 10\n",
+            "O novo salário é 1100.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "RIGUAKHveTJS"
+      },
+      "source": [
+        "### 4. (Função com retorno com parâmetro) Faça um programa contendo uma função/método que receba duas notas (P1, P2) calcule a média, chame outra função na main que avalie se este aluno esta aprovado ou reprovado retornando a str/string 'Aprovado' ou 'Reprovado'."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "hH2UZstHvFs2",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "8b4dae3c-0573-4e19-f4ce-83076bb59a30"
+      },
+      "source": [
+        "def media(prova1,prova2):\n",
+        "    media_prova = (prova1 + prova2) / 2\n",
+        "    return situacao(media_prova)\n",
+        "\n",
+        "def situacao(media):\n",
+        "    if media >= 6:\n",
+        "        print(\"Aprovado\")\n",
+        "    else:\n",
+        "        print(\"Reprovado\")\n",
+        "\n",
+        "def main():\n",
+        "    p1 = float(input(\"Insira a nota da primeira prova: \"))\n",
+        "    p2 = float(input(\"Insira a nota da segunda prova: \"))\n",
+        "    media(p1,p2)\n",
+        "\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Insira a nota da primeira prova: 10\n",
+            "Insira a nota da segunda prova: 10\n",
+            "Aprovado\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "hfkLntgNTWN1"
+      },
+      "source": [
+        "### 5. (Função com retorno com parâmetro) Faça um programa contendo uma função/método que receba um valor de porcentagem de aumento e um salário via parâmetro, aplique este aumento ao salário do funcionário. Na parte principal do programa, na chamada da função, utilize um laço de repetição para ler 10 salários, chame a função para aplicar o aumento e gerar o novo salário, ainda dentro da estrutura de repetição acumule os novos salários e ao final apresente quanto será gasto no novo salário. Também apresente qual será a diferença entre o que se pagava para todos os funcionário e o que será pago após o aumento."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fxdxfiezw8Bs",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a4bf2280-5afb-47b5-b225-b462df28c77c"
+      },
+      "source": [
+        "def aumento_salario(sal,perc):\n",
+        "    novo_salario = sal + sal * (perc / 100)\n",
+        "    return novo_salario\n",
+        "\n",
+        "def main():\n",
+        "    percentual = float(input(\"Insira o percentual de aumento: \"))\n",
+        "    acumula_salario = 0\n",
+        "    gasto_salario = 0\n",
+        "    for i in range(3):\n",
+        "        salario = float(input(\"Insira um salário: \"))\n",
+        "        aumento = aumento_salario(salario,percentual)\n",
+        "        acumula_salario = acumula_salario + aumento\n",
+        "        gasto_salario = gasto_salario + salario\n",
+        "    diferenca_pagamentos = acumula_salario - gasto_salario\n",
+        "    print(\"O valor do novo salário será de R$\",aumento)\n",
+        "    print(\"Será gasto nos novos salários R$\",acumula_salario)\n",
+        "    print(\"O valor da diferença é R$\",diferenca_pagamentos)\n",
+        "    \n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Insira o percentual de aumento: 10\n",
+            "Insira um salário: 1000\n",
+            "Insira um salário: 1000\n",
+            "Insira um salário: 1000\n",
+            "O valor do novo salário será de R$ 1100.0\n",
+            "Será gasto nos novos salários R$ 3300.0\n",
+            "O valor da diferença é R$ 300.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "W0slzp_rt2Iu"
+      },
+      "source": [
+        "### 6. (Função com retorno com parâmetro) Faça um programa contendo algumas funções:\n",
+        "a) Função para construir um menu de opções para uma calculadora, como neste exemplo:\n",
+        "\n",
+        "    Menu de cálculos\n",
+        "    1.   Número ao quadrado\n",
+        "    2.   Número ao cubo\n",
+        "    3.   Raiz do número\n",
+        "    4.   Raiz cúbica do número\n",
+        "    Qual é a opção desejada?\n",
+        "\n",
+        "b) Desenvolva uma função para cada opção de cálculo.\n",
+        "\n",
+        "Observação: Na chamada da função deve-se utilizar uma estrutura de repetição que permita diversos cálculos, quando o usuário quiser sair da calculadora digitará qualquer valor diferente dos **números** do menu.\n",
+        "\n",
+        "A função da construção do menu, chamará todas as outras passando a elas o valor digitado.\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "ik7rbrWyw41F",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "c7c65653-ac2f-43bf-fa93-aeba3d43c286"
+      },
+      "source": [
+        "import math\n",
+        "\n",
+        "def quadrado(numero):\n",
+        "    q = numero * numero\n",
+        "    return q\n",
+        "\n",
+        "def cubo(numero):\n",
+        "    c = numero * numero * numero\n",
+        "    return c\n",
+        "\n",
+        "def raiz_quadrada(numero):\n",
+        "    rq = math.pow(numero, 1/2)\n",
+        "    return rq\n",
+        "\n",
+        "def raiz_cubica(numero):\n",
+        "    rc = math.pow(numero, 1/3)\n",
+        "    return rc\n",
+        "\n",
+        "def menu(valor):\n",
+        "    print(\"Menu de cálculos:\")\n",
+        "    print(\"1. Número ao quadrado\")\n",
+        "    print(\"2. Número ao cubo\")\n",
+        "    print(\"3. Raiz quadrada do número\")\n",
+        "    print(\"4. Raiz cúbica do número\")\n",
+        "    escolha = input(\"Qual a opção desejada? \")\n",
+        "\n",
+        "    if escolha == \"1\":\n",
+        "        num = float(input(\"Insira um número: \"))\n",
+        "        calculo = quadrado(num)\n",
+        "        print(\"O resultado é\", calculo, \"\\n\")\n",
+        "        return True\n",
+        "    \n",
+        "    elif escolha == \"2\":\n",
+        "        num = float(input(\"Insira um número: \"))\n",
+        "        calculo = cubo(num)\n",
+        "        print(\"O resultado é\", calculo, \"\\n\")\n",
+        "        return True\n",
+        "    \n",
+        "    elif escolha == \"3\":\n",
+        "        num = float(input(\"Insira um número: \"))\n",
+        "        calculo = raiz_quadrada(num)\n",
+        "        print(\"O resultado é\", calculo, \"\\n\")\n",
+        "        return True\n",
+        "\n",
+        "    elif escolha == \"4\":\n",
+        "        num = float(input(\"Insira um número: \"))\n",
+        "        calculo = raiz_cubica(num)\n",
+        "        print(\"O resultado é\", calculo, \"\\n\")\n",
+        "        return True\n",
+        "    \n",
+        "    else:\n",
+        "        print(\"Obrigada por usar a calculadora.\")\n",
+        "        return False\n",
+        "\n",
+        "def main():\n",
+        "    exec = True\n",
+        "    cont = 1\n",
+        "    while exec == True:\n",
+        "        valido = menu(cont)\n",
+        "        cont = cont + 1\n",
+        "        if valido == False:\n",
+        "            exec = False\n",
+        "\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Menu de cálculos:\n",
+            "1. Número ao quadrado\n",
+            "2. Número ao cubo\n",
+            "3. Raiz quadrada do número\n",
+            "4. Raiz cúbica do número\n",
+            "Qual a opção desejada? 2\n",
+            "Insira um número: 2\n",
+            "O resultado é 8.0 \n",
+            "\n",
+            "Menu de cálculos:\n",
+            "1. Número ao quadrado\n",
+            "2. Número ao cubo\n",
+            "3. Raiz quadrada do número\n",
+            "4. Raiz cúbica do número\n",
+            "Qual a opção desejada? 1\n",
+            "Insira um número: 2\n",
+            "O resultado é 4.0 \n",
+            "\n",
+            "Menu de cálculos:\n",
+            "1. Número ao quadrado\n",
+            "2. Número ao cubo\n",
+            "3. Raiz quadrada do número\n",
+            "4. Raiz cúbica do número\n",
+            "Qual a opção desejada? 3\n",
+            "Insira um número: 4\n",
+            "O resultado é 2.0 \n",
+            "\n",
+            "Menu de cálculos:\n",
+            "1. Número ao quadrado\n",
+            "2. Número ao cubo\n",
+            "3. Raiz quadrada do número\n",
+            "4. Raiz cúbica do número\n",
+            "Qual a opção desejada? 4\n",
+            "Insira um número: 8\n",
+            "O resultado é 2.0 \n",
+            "\n",
+            "Menu de cálculos:\n",
+            "1. Número ao quadrado\n",
+            "2. Número ao cubo\n",
+            "3. Raiz quadrada do número\n",
+            "4. Raiz cúbica do número\n",
+            "Qual a opção desejada? 9\n",
+            "Obrigada por usar a calculadora.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "_aPd4c1b3OjS"
+      },
+      "source": [
+        "### 7. (Função com retorno com parâmetro) Faça um programa contendo algumas funções:\n",
+        "a) Função para construir um menu de opções para uma calculadora:\n",
+        "\n",
+        "    *** Minha Calculadora ***\n",
+        "    Digite um número.....: \n",
+        "    Digite outro número..: \n",
+        "        + Soma dois números\n",
+        "        - Subtrai dois números\n",
+        "        * Multiplica dois números\n",
+        "        / Divide dois números\n",
+        "    Qual opção deseja? \n",
+        "\n",
+        "b) Desenvolva uma função para cada opção de cálculo, **mas estas não terão retorno**.\n",
+        "\n",
+        "Observação: Na chamada da função deve-se utilizar uma estrutura de repetição que permita diversos cálculos, quando o usuário quiser sair da calculadora digitará qualquer valor diferente dos **caracteres** do menu.\n",
+        "\n",
+        "A função da construção do menu, chamará todas as outras passando a elas os valores digitados.\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Q6LPIy_LCQuO",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1e062061-b29d-45da-88d3-88f8789b67b4"
+      },
+      "source": [
+        "import math\n",
+        "\n",
+        "def soma(numero1,numero2):\n",
+        "    somando = numero1 + numero2\n",
+        "    print(\"A soma dos números é\", somando, \"\\n\")\n",
+        "\n",
+        "def subtracao(numero1,numero2):\n",
+        "    subtraindo = numero1 - numero2\n",
+        "    print(\"A subtração dos números é\", subtraindo, \"\\n\")\n",
+        "\n",
+        "def multiplicacao(numero1,numero2):\n",
+        "    multiplicando = numero1 * numero2\n",
+        "    print(\"A multiplicação dos números é\", multiplicando, \"\\n\")\n",
+        "\n",
+        "def divisao(numero1,numero2):\n",
+        "    dividindo = numero1 / numero2\n",
+        "    print(\"A divisão dos números é\", dividindo, \"\\n\")\n",
+        "\n",
+        "def menu(cont):\n",
+        "    while True:\n",
+        "        print(\"*** Minha Calculadora ***\")\n",
+        "        num1 = float(input(\"Digite um número: \"))\n",
+        "        num2 = float(input(\"Digite outro número: \"))\n",
+        "        print(\"+ - Soma dois números\")\n",
+        "        print(\"- - Subtrai dois números\")\n",
+        "        print(\"* - Multiplica dois números\")\n",
+        "        print(\"/ - Divide dois números\")\n",
+        "        opcao = input(\"Qual opção deseja? \")\n",
+        "\n",
+        "        if opcao == '+':\n",
+        "            soma(num1,num2)\n",
+        "\n",
+        "        elif opcao == \"-\":\n",
+        "            subtracao(num1,num2)\n",
+        "\n",
+        "        elif opcao == \"*\":\n",
+        "            multiplicacao(num1,num2)\n",
+        "\n",
+        "        elif opcao == \"/\":\n",
+        "            if num2 == 0:\n",
+        "                print(\"Impossível dividir por 0. \\n\")\n",
+        "            else:\n",
+        "                divisao(num1,num2)\n",
+        "\n",
+        "        else:\n",
+        "            print(\"Obrigada por utilizar a calculadora.\")\n",
+        "            break\n",
+        "\n",
+        "def main():\n",
+        "    menu()\n",
+        "\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "*** Minha Calculadora ***\n",
+            "Digite um número: 10\n",
+            "Digite outro número: 0\n",
+            "+ - Soma dois números\n",
+            "- - Subtrai dois números\n",
+            "* - Multiplica dois números\n",
+            "/ - Divide dois números\n",
+            "Qual opção deseja? /\n",
+            "Impossível dividir por 0. \n",
+            "\n",
+            "*** Minha Calculadora ***\n",
+            "Digite um número: 20\n",
+            "Digite outro número: 20\n",
+            "+ - Soma dois números\n",
+            "- - Subtrai dois números\n",
+            "* - Multiplica dois números\n",
+            "/ - Divide dois números\n",
+            "Qual opção deseja? 4\n",
+            "Obrigada por utilizar a calculadora.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "3XRPufcfd10w"
+      },
+      "source": [
+        "### 8. (Função com retorno com parâmetro) Faça um programa contendo algumas funções:\n",
+        "a) Função para construir um menu de opções para uma calculadora:\n",
+        "\n",
+        "    *** Minha Calculadora ***\n",
+        "    Digite um número.....: \n",
+        "    Digite outro número..: \n",
+        "        + Soma dois números\n",
+        "        - Subtrai dois números\n",
+        "        * Multiplica dois números\n",
+        "        / Divide dois números\n",
+        "    Qual opção deseja? \n",
+        "\n",
+        "b) Desenvolva uma função para cada opção de cálculo, que deverá ter retorno.\n",
+        "\n",
+        "Observação: Na chamada da função deve-se utilizar uma estrutura de repetição que permita diversos cálculos, quando o usuário quiser sair da calculadora digitará qualquer valor diferente dos **caracteres** do menu.\n",
+        "\n",
+        "A função de desenho/construção do menu, chamará todas as outras passando a elas os valores digitados."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "e0fZnaiYhgpc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "c64db333-7d51-4c61-99d2-9a12256a6316"
+      },
+      "source": [
+        "import math\n",
+        "\n",
+        "def soma(numero1,numero2):\n",
+        "    return numero1 + numero2\n",
+        "    \n",
+        "def subtracao(numero1,numero2):\n",
+        "    return numero1 - numero2\n",
+        "    \n",
+        "def multiplicacao(numero1,numero2):\n",
+        "    return numero1 * numero2\n",
+        "\n",
+        "def divisao(numero1,numero2):\n",
+        "    return numero1 / numero2\n",
+        "    \n",
+        "def menu(cont):\n",
+        "    while True:\n",
+        "        print(\"*** Minha Calculadora ***\")\n",
+        "        num1 = float(input(\"Digite um número: \"))\n",
+        "        num2 = float(input(\"Digite outro número: \"))\n",
+        "        print(\"+ - Soma dois números\")\n",
+        "        print(\"- - Subtrai dois números\")\n",
+        "        print(\"* - Multiplica dois números\")\n",
+        "        print(\"/ - Divide dois números\")\n",
+        "        opcao = input(\"Qual opção deseja? \")\n",
+        "\n",
+        "        if opcao == '+':\n",
+        "            somando = soma(num1,num2)\n",
+        "            print(\"A soma dos números é\", somando, \"\\n\")\n",
+        "            return True\n",
+        "\n",
+        "        elif opcao == \"-\":\n",
+        "            subtraindo = subtracao(num1,num2)\n",
+        "            print(\"A subtração dos números é\", subtraindo, \"\\n\")\n",
+        "            return True\n",
+        "\n",
+        "        elif opcao == \"*\":\n",
+        "            multiplicando = multiplicacao(num1,num2)\n",
+        "            print(\"A multiplicação dos números é\", multiplicando, \"\\n\")\n",
+        "            return True\n",
+        "\n",
+        "        elif opcao == \"/\":\n",
+        "            if num2 == 0:\n",
+        "                print(\"Impossível dividir por 0. \\n\")\n",
+        "    \n",
+        "            else:\n",
+        "                dividindo = divisao(num1,num2)\n",
+        "                print(\"A divisão dos números é\", dividindo, \"\\n\")\n",
+        "            return True\n",
+        "\n",
+        "        else:\n",
+        "            print(\"Obrigada por utilizar a calculadora.\")\n",
+        "            return False\n",
+        "\n",
+        "def main():\n",
+        "    exec = True\n",
+        "    cont = 1\n",
+        "    while exec == True:\n",
+        "        valido = menu(cont)\n",
+        "        cont = cont + 1\n",
+        "        if valido == False:\n",
+        "            exec = False\n",
+        "\n",
+        "main()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "*** Minha Calculadora ***\n",
+            "Digite um número: 10\n",
+            "Digite outro número: 0\n",
+            "+ - Soma dois números\n",
+            "- - Subtrai dois números\n",
+            "* - Multiplica dois números\n",
+            "/ - Divide dois números\n",
+            "Qual opção deseja? /\n",
+            "Impossível dividir por 0. \n",
+            "\n",
+            "*** Minha Calculadora ***\n",
+            "Digite um número: 10\n",
+            "Digite outro número: 10\n",
+            "+ - Soma dois números\n",
+            "- - Subtrai dois números\n",
+            "* - Multiplica dois números\n",
+            "/ - Divide dois números\n",
+            "Qual opção deseja? 5\n",
+            "Obrigada por utilizar a calculadora.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
